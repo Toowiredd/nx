@@ -1,13 +1,9 @@
-# DISABLED AUTO-RUN: Originally triggered on auto-triggers
-# Converted to manual execution only - 2025-10-18
-# Backup available at: issue-notifier.yml.backup
 name: Issue Statistics
 
 on:
-  workflow_dispatch:  # Manual trigger only
-#   schedule:
-#     - cron: "0 0 * * 0"
-#   workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
 
 permissions:
   issues: read

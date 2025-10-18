@@ -1,22 +1,18 @@
-# DISABLED AUTO-RUN: Originally triggered on auto-triggers
-# Converted to manual execution only - 2025-10-18
-# Backup available at: publish.yml.backup
 name: publish
 
 on:
-  workflow_dispatch:  # Manual trigger only
-#   # Automated schedule - canary releases from master
-#   schedule:
-#     - cron: "0 20 * * 1-5" # Monday - Friday, at 20:00 UTC (8pm UTC)
-#   # Manual trigger - PR releases or dry-runs (based on workflow inputs)
-#   workflow_dispatch:
-#     inputs:
-#       pr:
-#         description: "PR Number - If set, a real release will be created for the branch associated with the given PR number. If blank, a dry-run of the currently selected branch will be performed."
-#         required: false
-#         type: number
-#   release:
-#     types: [ published ]
+  # Automated schedule - canary releases from master
+  schedule:
+    - cron: "0 20 * * 1-5" # Monday - Friday, at 20:00 UTC (8pm UTC)
+  # Manual trigger - PR releases or dry-runs (based on workflow inputs)
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: "PR Number - If set, a real release will be created for the branch associated with the given PR number. If blank, a dry-run of the currently selected branch will be performed."
+        required: false
+        type: number
+  release:
+    types: [ published ]
 
 # Dynamically generate the display name for the GitHub UI based on the event type and inputs
 run-name: ${{ github.event.inputs.pr && format('PR Release for {0}', github.event.inputs.pr) || github.event_name == 'schedule' && 'Canary Release' || github.event_name == 'workflow_dispatch' && !github.event.inputs.pr && 'Release Dry-Run' || github.ref_name }}

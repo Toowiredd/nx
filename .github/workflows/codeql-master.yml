@@ -9,13 +9,17 @@
 # the `language` matrix defined below to confirm you have the correct set of
 # supported CodeQL languages.
 #
+# DISABLED AUTO-RUN: Originally triggered on auto-triggers
+# Converted to manual execution only - 2025-10-18
+# Backup available at: codeql-master.yml.backup
 name: "CodeQL"
 
 on:
-  push:
-    branches: [ "master" ]
-  schedule:
-    - cron: '20 14 * * 6'
+  workflow_dispatch:  # Manual trigger only
+#   push:
+#     branches: [ "master" ]
+#   schedule:
+#     - cron: '20 14 * * 6'
 
 jobs:
   analyze:

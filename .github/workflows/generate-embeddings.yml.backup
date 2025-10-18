@@ -1,12 +1,8 @@
-# DISABLED AUTO-RUN: Originally triggered on auto-triggers
-# Converted to manual execution only - 2025-10-18
-# Backup available at: generate-embeddings.yml.backup
 name: Generate embeddings
 
 on:
-  workflow_dispatch:  # Manual trigger only
-#   schedule:
-#     - cron: "0 5 * * 0,4" # sunday, thursday 5AM
+  schedule:
+    - cron: "0 5 * * 0,4" # sunday, thursday 5AM
 
 jobs:
   cache-and-install:

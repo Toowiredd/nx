@@ -1,12 +1,8 @@
-# DISABLED AUTO-RUN: Originally triggered on auto-triggers
-# Converted to manual execution only - 2025-10-18
-# Backup available at: pr-title-validation.yml.backup
 name: PR Title Validation
 
 on:
-  workflow_dispatch:  # Manual trigger only
-#   pull_request:
-#     types: [opened, edited, synchronize, reopened]
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
 
 permissions: read-all
 

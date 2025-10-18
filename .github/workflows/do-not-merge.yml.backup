@@ -1,12 +1,8 @@
-# DISABLED AUTO-RUN: Originally triggered on auto-triggers
-# Converted to manual execution only - 2025-10-18
-# Backup available at: do-not-merge.yml.backup
 name: Unmergeable Labels Check
 
 on:
-  workflow_dispatch:  # Manual trigger only
-#   pull_request:
-#     types: [synchronize, opened, reopened, labeled, unlabeled]
+  pull_request:
+    types: [synchronize, opened, reopened, labeled, unlabeled]
 
 jobs:
   do-not-merge:
